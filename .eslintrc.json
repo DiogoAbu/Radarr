@@ -1,0 +1,254 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "globals": {
+    "__DEV__": true,
+    "require": true,
+    "setImmediate": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "array-bracket-spacing": [
+      2,
+      "always"
+    ],
+    "comma-dangle": [
+      2,
+      "always-multiline"
+    ],
+    "comma-spacing": [
+      2,
+      {
+        "after": true,
+        "before": false
+      }
+    ],
+    "func-call-spacing": [
+      2,
+      "never"
+    ],
+    "indent": [
+      2,
+      2,
+      {
+        "ArrayExpression": 1,
+        "CallExpression": {
+          "arguments": 1
+        },
+        "ImportDeclaration": 1,
+        "MemberExpression": 1,
+        "ObjectExpression": 1,
+        "SwitchCase": 1,
+        "flatTernaryExpressions": true,
+        "outerIIFEBody": 0
+      }
+    ],
+    "jsx-quotes": [
+      2,
+      "prefer-single"
+    ],
+    "key-spacing": [
+      2,
+      {
+        "multiLine": {
+          "afterColon": true,
+          "align": "colon",
+          "beforeColon": false
+        },
+        "singleLine": {
+          "afterColon": true,
+          "beforeColon": false
+        }
+      }
+    ],
+    "newline-per-chained-call": 0,
+    "no-await-in-loop": 2,
+    "no-console": 0,
+    "no-multiple-empty-lines": [
+      2,
+      {
+        "max": 2
+      }
+    ],
+    "no-return-await": 2,
+    "no-var": 2,
+    "object-shorthand": [
+      2,
+      "always"
+    ],
+    "one-var": [
+      2,
+      "never"
+    ],
+    "prefer-const": [
+      2,
+      {
+        "destructuring": "all",
+        "ignoreReadBeforeAssign": false
+      }
+    ],
+    "prefer-spread": 2,
+    "react/boolean-prop-naming": [
+      2,
+      {
+        "rule": "^(can|has|is|no)[A-Z]([A-Za-z0-9]?)+"
+      }
+    ],
+    "react/jsx-closing-bracket-location": [
+      2,
+      "line-aligned"
+    ],
+    "react/jsx-equals-spacing": [
+      2,
+      "never"
+    ],
+    "react/jsx-first-prop-new-line": 2,
+    "react/jsx-handler-names": [
+      2,
+      {
+        "eventHandlerPrefix": "_handle",
+        "eventHandlerPropPrefix": "_on"
+      }
+    ],
+    "react/jsx-indent": [
+      2,
+      2
+    ],
+    "react/jsx-indent-props": [
+      2,
+      2
+    ],
+    "react/jsx-max-props-per-line": [
+      2,
+      {
+        "maximum": 1,
+        "when": "always"
+      }
+    ],
+    "react/jsx-no-duplicate-props": 2,
+    "react/jsx-pascal-case": 2,
+    "react/jsx-sort-props": [
+      2,
+      {
+        "callbacksLast": true,
+        "ignoreCase": false,
+        "noSortAlphabetically": false,
+        "reservedFirst": true,
+        "shorthandFirst": true,
+        "shorthandLast": false
+      }
+    ],
+    "react/jsx-tag-spacing": [
+      2,
+      {
+        "afterOpening": "never",
+        "beforeSelfClosing": "always",
+        "closingSlash": "never"
+      }
+    ],
+    "react/jsx-uses-vars": 2,
+    "react/jsx-wrap-multilines": [
+      2,
+      {
+        "arrow": true,
+        "assignment": true,
+        "declaration": true,
+        "return": true
+      }
+    ],
+    "react/no-direct-mutation-state": 2,
+    "react/no-string-refs": 2,
+    "react/no-typos": 2,
+    "react/no-unescaped-entities": 2,
+    "react/prefer-es6-class": [
+      2,
+      "always"
+    ],
+    "react/prop-types": 0,
+    "react/require-optimization": 2,
+    "react/require-render-return": 2,
+    "react/sort-comp": [
+      2,
+      {
+        "groups": {
+          "binds": [
+            "/^_.+$/",
+            "/^_init.+$/",
+            "/^_on.+$/",
+            "/^_handle.+$/"
+          ],
+          "rendering": [
+            "/^(_|)render.+$/",
+            "render"
+          ]
+        },
+        "order": [
+          "type-annotations",
+          "static-methods",
+          "lifecycle",
+          "binds",
+          "everything-else",
+          "rendering"
+        ]
+      }
+    ],
+    "react/sort-prop-types": 0,
+    "require-await": 2,
+    "require-jsdoc": [
+      2,
+      {
+        "require": {
+          "ArrowFunctionExpression": false,
+          "ClassDeclaration": false,
+          "FunctionDeclaration": true,
+          "MethodDefinition": false
+        }
+      }
+    ],
+    "rest-spread-spacing": [
+      2,
+      "never"
+    ],
+    "semi": [
+      2,
+      "never"
+    ],
+    "space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "never",
+        "asyncArrow": "always",
+        "named": "never"
+      }
+    ],
+    "strict": [
+      2,
+      "safe"
+    ],
+    "switch-colon-spacing": 2,
+    "valid-jsdoc": [
+      2,
+      {
+        "matchDescription": ".+",
+        "requireParamDescription": true,
+        "requireReturn": true,
+        "requireReturnDescription": false,
+        "requireReturnType": true
+      }
+    ]
+  }
+}

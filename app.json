@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "Radarr",
+    "description": "Offline-first application to Radarr",
+    "slug": "radarr",
+
+    "privacy": "public",
+    "sdkVersion": "22.0.0",
+    "version": "0.1.0",
+
+    "orientation": "default",
+    "primaryColor": "#141517",
+    "icon": "./assets/image/512.png",
+
+    "loading": {
+      "icon": "./assets/image/128.png",
+      "backgroundColor": "#141517",
+    },
+
+    "androidStatusBarColor": "#292b30",
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#292b30"
+    },
+
+    "ios": {
+      "bundleIdentifier": "io.github.letsmakeapps.radarr",
+      "buildNumber": "0",
+
+      "icon": "./assets/image/512.png",
+    },
+
+    "android": {
+      "package": "io.github.letsmakeapps.radarr",
+      "versionCode": 0,
+
+      "icon": "./assets/image/512.png",
+    },
+  },
+}
