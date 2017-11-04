@@ -27,11 +27,11 @@ const createDeepEqualSelector = createSelectorCreator(defaultMemoize, isEqual)
 
 const diskspaceListGetter = state => state.diskspace.list
 
-export const getDiskspaceArray = createDeepEqualSelector(diskspaceListGetter, diskspaceList => {
-  return diskspaceList.map(disk => {
-    return {
+export const getDiskspaceArray = createDeepEqualSelector(diskspaceListGetter, diskspaceList =>
+  diskspaceList
+    .map(disk => ({
       ...disk,
       color: randomFlatColors([ 'blue', 'green', 'orange', 'purple', 'red', 'yellow' ]),
-    }
-  }).sort((a, b) => naturalSort()(a.path, b.path))
-})
+    }))
+    .sort((a, b) => naturalSort()(a.path, b.path))
+)

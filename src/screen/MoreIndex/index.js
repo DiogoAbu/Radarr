@@ -22,3 +22,4 @@
 export { default as MoreIndex } from './MoreIndex'
 export { default as DiskspaceScreen } from './DiskspaceScreen'
 export { default as NotificationScreen } from './NotificationScreen'
+export { default as SystemStatusScreen } from './SystemStatusScreen'

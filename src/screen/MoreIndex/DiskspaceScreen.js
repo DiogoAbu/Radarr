@@ -24,6 +24,7 @@ import ProgressBar from 'react-native-progress/Bar'
 import { appSelector } from 'src/reducer'
 
 import * as selfSelector from './DiskspaceScreen.selector'
+import style from './DiskspaceScreen.style'
 
 import { theme } from 'src/constant'
 import { localization } from 'src/localization'
@@ -56,10 +57,10 @@ class DiskspaceScreen extends React.Component {
     <ListItem
       height={ITEM_HEIGHT}
       center={
-        <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'stretch', alignSelf: 'stretch' }}>
+        <View style={style.centerContainer}>
           <Text
             {...theme.props.oneLine}
-            style={[ theme.style.text, { marginBottom: theme.grid / 6 } ]}
+            style={[ theme.style.text, style.path ]}
           >
             {item.path}
           </Text>
@@ -71,16 +72,16 @@ class DiskspaceScreen extends React.Component {
             borderColor={item.color}
           />
 
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: theme.grid / 6 }}>
+          <View style={style.sizeContainer}>
             <Text
               {...theme.props.oneLine}
-              style={[ theme.style.text, { color: theme.fontColorFade } ]}
+              style={[ theme.style.text, style.size ]}
             >
               {localization.toHumanSize(item.totalSpace - item.freeSpace)}
             </Text>
             <Text
               {...theme.props.oneLine}
-              style={[ theme.style.text, { color: theme.fontColorFade, textAlign: 'right' } ]}
+              style={[ theme.style.text, style.size, style.sizeRight ]}
             >
               {localization.toHumanSize(item.totalSpace)}
             </Text>
