@@ -23,8 +23,8 @@ import ProgressBar from 'react-native-progress/Bar'
 ////////////
 import { appSelector } from 'src/reducer'
 
-import * as selfSelector from './DiskspaceScreen.selector'
-import style from './DiskspaceScreen.style'
+import * as selfSelector from './MoreDiskspace.selector'
+import style from './MoreDiskspace.style'
 
 import { theme } from 'src/constant'
 import { localization } from 'src/localization'
@@ -35,8 +35,8 @@ import { ListItem, ListItemSeparator } from 'src/component'
 //////////
 const ITEM_HEIGHT = theme.grid * 3
 
-class DiskspaceScreen extends React.Component {
-  static displayName = 'DiskspaceScreen'
+class MoreDiskspace extends React.Component {
+  static displayName = 'MoreDiskspace'
 
   static navigationOptions = () => ({
     title: localization.t('diskspace'),
@@ -44,7 +44,7 @@ class DiskspaceScreen extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     if ((!isEqual(nextProps, this.props) || !isEqual(nextState, this.state)) && nextProps.currentRoute === this.constructor.displayName) {
-      if(__DEV__) console.log('Render', 'DiskspaceScreen', 'currentRoute')
+      if(__DEV__) console.log('Render', 'MoreDiskspace', 'currentRoute')
       return true
     }
     return false
@@ -124,7 +124,7 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default {
-  screen: connect(mapStateToProps, mapDispatchToProps)(DiskspaceScreen),
+  screen: connect(mapStateToProps, mapDispatchToProps)(MoreDiskspace),
 
   navigationOptions: {},
 }

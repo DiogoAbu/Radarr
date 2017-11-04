@@ -86,7 +86,7 @@ const getMovieSearcher = createDeepEqualSelector(getMovieSorted, movieArray => {
     // if true, split query&field in token, allow to match in different order. False, bypass at least half the computation cost, very fast
     score_per_token     : false,
     // Return up to N result, 0 to disable
-    output_limit        : config.movieSearchLimit,
+    output_limit        : config.movieLocalSearchLimit,
     // when true, any refresh happens only when a user make a search, option stay put until changed.
     lazy                : true,
     interactive_debounce: 0,

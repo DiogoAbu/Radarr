@@ -467,7 +467,7 @@ class MovieIndex extends React.Component {
           ListFooterComponent={
             <Text style={style.footerComponent}>
               {hasSearchResults
-                ? localization.t('showingUpToNResults', { n: config.movieSearchLimit })
+                ? localization.t('showingUpToNResults', { n: config.movieLocalSearchLimit })
                 : isLastPage ? localization.t('theEnd') : localization.t('loadingMore')}
             </Text>
           }

@@ -19,4 +19,4 @@
 //////////
 // Init //
 //////////
-export { default as MoreIndex } from './MoreIndex'
+export { default as MoreNotification } from './MoreNotification'

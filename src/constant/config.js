@@ -28,13 +28,18 @@ const config = {
   moviePerPage             : 20,
   movieInitialNumToRender  : 5,
   movieArrayHorizontalTotal: 10,
-  movieSearchLimit         : 10,
+  movieLocalSearchLimit    : 10,
 
   queuePerPage           : 25,
   queueInitialNumToRender: 5,
 
   wantedPerPage           : 25,
   wantedInitialNumToRender: 5,
+  wantedGetPageSize       : -1,
+
+  historyPerPage           : 25,
+  historyInitialNumToRender: 5,
+  historyGetPageSize       : 100,
 
   notificationMaxToStore : 25,
   notificationTimeout    : 4000,

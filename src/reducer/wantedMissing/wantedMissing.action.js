@@ -97,7 +97,7 @@ export function get({ server, params, onDone }) {
       const defaultParams = {
         sortKey : 'inCinemas',
         page    : 1,
-        pageSize: config.wantedPerPage * 5,
+        pageSize: config.wantedGetPageSize,
         sortDir : 'asc',
       }
 

@@ -46,12 +46,12 @@ class MoreIndex extends React.Component {
     this._onPressItem = debounce(config.debounceTime, true, this._onPressItem)
 
     this._list = [
-      { key: 10, text: 'profile', routeName: 'ProfileScreen' },
-      { key: 20, text: 'calendar', routeName: 'CalendarScreen' },
-      { key: 30, text: 'history', routeName: 'HistoryScreen' },
-      { key: 40, text: 'diskspace', routeName: 'DiskspaceScreen' },
-      { key: 50, text: 'systemStatus', routeName: 'SystemStatusScreen' },
-      { key: 60, text: 'notifications', routeName: 'NotificationScreen' },
+      { key: 10, text: 'profile', routeName: 'MoreProfile' },
+      { key: 20, text: 'calendar', routeName: 'MoreCalendar' },
+      { key: 30, text: 'history', routeName: 'MoreHistory' },
+      { key: 40, text: 'diskspace', routeName: 'MoreDiskspace' },
+      { key: 50, text: 'systemStatus', routeName: 'MoreSystemStatus' },
+      { key: 60, text: 'notifications', routeName: 'MoreNotification' },
     ]
   }
 

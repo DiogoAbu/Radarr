@@ -95,7 +95,7 @@ export function get({ server, params, onDone }) {
       const defaultParams = {
         sortKey : 'date',
         page    : 1,
-        pageSize: 10,
+        pageSize: config.historyGetPageSize,
         sortDir : 'desc',
       }
 

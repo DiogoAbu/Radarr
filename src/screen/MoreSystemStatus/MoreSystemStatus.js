@@ -22,6 +22,9 @@ import isEqual from 'lodash.isequal'
 ////////////
 import { appSelector } from 'src/reducer'
 
+import * as selfSelector from './MoreSystemStatus.selector'
+import style from './MoreSystemStatus.style'
+
 import { theme } from 'src/constant'
 import { localization } from 'src/localization'
 import { ListItem, ListItemSeparator } from 'src/component'
@@ -29,55 +32,44 @@ import { ListItem, ListItemSeparator } from 'src/component'
 //////////
 // Init //
 //////////
-class NotificationScreen extends React.Component {
-  static displayName = 'NotificationScreen'
+class MoreSystemStatus extends React.Component {
+  static displayName = 'MoreSystemStatus'
 
   static navigationOptions = () => ({
-    title: localization.t('notifications'),
+    title: localization.t('systemStatus'),
   })
 
   shouldComponentUpdate(nextProps, nextState) {
     if ((!isEqual(nextProps, this.props) || !isEqual(nextState, this.state)) && nextProps.currentRoute === this.constructor.displayName) {
-      if(__DEV__) console.log('Render', 'NotificationScreen', 'currentRoute')
+      if (__DEV__) console.log('Render', 'MoreSystemStatus', 'currentRoute')
       return true
     }
     return false
   }
 
-  _getIconAndColor = type => {
-    switch (type) {
-      case 'success':
-        return { name: 'check-circle', color: theme.brandSuccessDark }
-      case 'info':
-        return { name: 'information', color: theme.brandInfoDark }
-      case 'warning':
-        return { name: 'alert-circle', color: theme.brandWarningDark }
-      case 'error':
-        return { name: 'bug', color: theme.brandErrorDark }
-      default:
-        return { name: 'message-text', color: theme.fontColor }
-    }
-  }
-
   _getItemLayoutSort = (data, index) => ({ length: theme.listItemHeight, offset: (theme.listItemHeight + theme.listItemSeparatorHeight) * index, index })
 
-  _renderItem = ({ item }) => (<ListItem
-    left={this._getIconAndColor(item.type)}
-    center={item.message}
-    right={null}
-  />)
+  _renderItem = ({ item: { key, text, value, raw } }) => (
+    <ListItem
+      key={key}
+      center={localization.t(text)}
+      styleCenter={style.titleContainer}
+      right={raw ? value : localization.t(value)}
+      styleRight={style.valueContainer}
+    />
+  )
 
   render = () => (
     <FlatList
       style={[ theme.style.viewBody, this.props.hasNotificationStyle ]}
-      data={this.props.notificationArray}
+      data={this.props.systemStatusArray}
       renderItem={this._renderItem}
       getItemLayout={this._getItemLayout}
       ItemSeparatorComponent={ListItemSeparator}
       indicatorStyle={theme.scrollBarStyle}
       ListEmptyComponent={
         <View style={theme.style.viewVerticalCenter}>
-          <Text style={theme.style.textLoading}>{localization.t('noNotifications')}</Text>
+          <Text style={theme.style.textLoading}>{localization.t('theEnd')}</Text>
         </View>
       }
     />
@@ -85,8 +77,7 @@ class NotificationScreen extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  server              : state.server.active,
-  notificationArray   : appSelector.getNotificationArrayForServer(state),
+  systemStatusArray   : selfSelector.getSystemStatusArray(state),
   hasNotificationStyle: appSelector.getHasNotificationStyle(state),
   currentRoute        : appSelector.getCurrentRoute(state),
 })
@@ -98,7 +89,7 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default {
-  screen: connect(mapStateToProps, mapDispatchToProps)(NotificationScreen),
+  screen: connect(mapStateToProps, mapDispatchToProps)(MoreSystemStatus),
 
   navigationOptions: {},
 }
