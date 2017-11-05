@@ -75,7 +75,7 @@ export default {
   sqliteVersion    : 'Sqlite version',
   runtimeVersion   : 'Runtime version',
 
-  details       : 'details',
+  details       : 'Details',
   movies        : 'Movies',
   movieDetails  : 'Movie Details',
   movieEdit     : 'Movie Preferences',
@@ -143,6 +143,9 @@ export default {
   qualityCutoffNotMet: 'Cutoff not met',
   message            : 'Message',
   reason             : 'Reason',
+  language           : 'Language',
+  tags               : 'Tags',
+  cutoff             : 'Cutoff',
 
   searchMovie        : 'Search movie',
   goAddAServer       : 'Go add a server',
@@ -158,6 +161,8 @@ export default {
   resyncMovieInfo    : 'Resync movie info',
   redownloadPoster   : 'Redownload poster',
   redownloadBanner   : 'Redownload banner',
+  general            : 'General',
+  qualities          : 'Qualities',
 
   gotStored               : 'got stored',
   nothingStored           : 'nothing stored',
