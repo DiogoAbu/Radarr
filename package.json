@@ -26,7 +26,9 @@
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
     "test": "node node_modules/jest/bin/jest.js --watch",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "exp-login": "\"./node_modules/.bin/exp\" login -u $EXPO_USER -p $EXPO_PASS --non-interactive",
+    "exp-publish": "\"./node_modules/.bin/exp\" publish --quiet --non-interactive"
   },
   "lint-staged": {
     "*.js": [

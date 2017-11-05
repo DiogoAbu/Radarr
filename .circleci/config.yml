@@ -1,15 +1,8 @@
 version: 2
 jobs:
-  build:
+  exp_login_and_publish:
     docker:
-      # specify the version you desire here
       - image: circleci/node:8
-      - image: jlxw/exp:latest
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
 
     working_directory: ~/repo
 
@@ -23,7 +16,9 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: yarn install
+      - run:
+          name: Install dependencies
+          command: yarn install
 
       - save_cache:
           paths:
@@ -32,8 +27,17 @@ jobs:
 
       - run:
           name: Expo login
-          command: exp login -u $EXPO_USER -p $EXPO_PASS --non-interactive
+          command: yarn exp-login
 
       - run:
           name: Expo publish
-          command: exp publish --quiet --non-interactive
+          command: yarn exp-publish
+
+workflows:
+  version: 2
+  exp_publish:
+    jobs:
+      - exp_login_and_publish:
+          filters:
+            branches:
+              only: master
