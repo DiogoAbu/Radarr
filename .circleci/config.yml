@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  publish:
+  build:
     docker:
       - image: circleci/node:8
 
@@ -11,7 +11,7 @@ jobs:
 
       # Download and cache dependencies
       - restore_cache:
-          keys:
+          keys:git
           - v1-dependencies-{{ checksum "package.json" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
@@ -23,19 +23,15 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run:
-          name: Exp Login
-          command: cat <(echo login; exp login --username $EXPO_USER --password $EXPO_PASS)
+      - run: cat <(echo login; exp login --username $EXPO_USER --password $EXPO_PASS)
 
-      - run:
-          name: Exp Publish
-          command: cat <(echo publish; exp publish)
+      - run: cat <(echo publish; exp publish)
 
 workflows:
   version: 2
-  publish:
+  build_and_test:
     jobs:
-      - publish:
+      - build
           filters:
             branches:
               only: master
