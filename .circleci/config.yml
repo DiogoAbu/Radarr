@@ -4,6 +4,7 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:8
+      - image: jlxw/exp:latest
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -31,8 +32,8 @@ jobs:
 
       - run:
           name: Expo login
-          command: "node_modules/.bin/exp" login -u $EXPO_USER -p $EXPO_PASS --non-interactive
+          command: exp login -u $EXPO_USER -p $EXPO_PASS --non-interactive
 
       - run:
           name: Expo publish
-          command: "node_modules/.bin/exp" publish --non-interactive
+          command: exp publish --quiet --non-interactive
