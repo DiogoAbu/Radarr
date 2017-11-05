@@ -1,10 +1,9 @@
 version: 2
 jobs:
+
   build:
     docker:
       - image: circleci/node:8
-
-    working_directory: ~/repo
 
     steps:
       - checkout
@@ -26,12 +25,3 @@ jobs:
       - run: cat <(echo login; exp login --username $EXPO_USER --password $EXPO_PASS)
 
       - run: cat <(echo publish; exp publish)
-
-workflows:
-  version: 2
-  build_and_test:
-    jobs:
-      - build
-          filters:
-            branches:
-              only: master
