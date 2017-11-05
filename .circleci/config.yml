@@ -30,4 +30,6 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: exp login --username $EXPO_USER --password $EXPO_PASS
+      - run:
+          name: Expo login
+          command: exp login --username $EXPO_USER --password $EXPO_PASS
