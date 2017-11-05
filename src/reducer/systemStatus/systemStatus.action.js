@@ -47,7 +47,7 @@ export function sync({ server, onDoneRead, onDoneGet, onDoneStore }) {
         await store({ server, systemStatusObj: fetched, onDone: onDoneStore })(dispatch)
       }
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -72,7 +72,7 @@ export function read({ server, onDone }) {
 
       return dispatch({ type: TYPE.SET_SYSTEMSTATUS, payload: systemStatusObj })
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -112,7 +112,7 @@ export function get({ server, onDone }) {
 
       throw new Error(`Failed to handle fetched systemStatus data (${url})`)
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -141,7 +141,7 @@ export function store({ server, systemStatusObj, onDone }) {
 
       return dispatch({ type: TYPE.SET_SYSTEMSTATUS, payload: systemStatusObj })
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -165,7 +165,7 @@ export function purge({ server, onDone }) {
 
       return dispatch({ type: TYPE.SET_SYSTEMSTATUS, payload: [] })
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }

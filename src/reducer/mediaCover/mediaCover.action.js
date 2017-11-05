@@ -38,7 +38,7 @@ export function sync({ server, movieArray, onProgress, onDone }) {
       await dir()(dispatch)
       await get({ server, movieArray, onProgress, onDone })(dispatch)
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -56,7 +56,7 @@ export function dir() {
         await FileSystem.makeDirectoryAsync(config.mediaCover.root, { intermediates: true })
       }
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message } })
     }
   }
@@ -95,7 +95,7 @@ export function check({ server, movieArray }) {
 
       return totalToDownload
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -131,7 +131,7 @@ export function get({ server, movieArray, onProgress, onDone }) {
         onDone()
       }
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -196,7 +196,7 @@ export function getOne({ server, movie, mediaType, onProgress }) {
 
       return true
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -215,7 +215,7 @@ export function purge({ movie, mediaType }) {
       await FileSystem.deleteAsync(imagePath, { idempotent: true })
       return true
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message } })
     }
   }

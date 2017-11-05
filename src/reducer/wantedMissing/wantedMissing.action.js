@@ -49,7 +49,7 @@ export function sync({ server, getParams, onDoneRead, onDoneGet, onDoneStore }) 
         await store({ server, wantedMissingArray: fetched, onDone: onDoneStore })(dispatch)
       }
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -75,7 +75,7 @@ export function read({ server, onDone }) {
 
       return dispatch({ type: TYPE.SET_WANTEDMISSING, payload: wantedMissingArray })
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -125,7 +125,7 @@ export function get({ server, params, onDone }) {
 
       throw new Error(`Failed to handle fetched wantedMissing data (${url})`)
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -154,7 +154,7 @@ export function store({ server, wantedMissingArray, onDone }) {
 
       return dispatch({ type: TYPE.SET_WANTEDMISSING, payload: wantedMissingArray })
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -178,7 +178,7 @@ export function purge({ server, onDone }) {
 
       return dispatch({ type: TYPE.SET_WANTEDMISSING, payload: [] })
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }

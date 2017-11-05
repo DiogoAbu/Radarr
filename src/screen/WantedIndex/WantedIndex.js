@@ -96,7 +96,7 @@ class WantedIndex extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     if ((!isEqual(nextProps, this.props) || !isEqual(nextState, this.state)) && nextProps.currentRoute === this.constructor.displayName) {
-      if (__DEV__) console.log('Render', 'WantedIndex', 'currentRoute')
+      console.log('Render', 'WantedIndex', 'currentRoute')
       return true
     }
     return false
@@ -212,7 +212,6 @@ class WantedIndex extends React.Component {
 
   _renderItem = ({ item: movie }) => (
     <ListItem
-      key={movie.key}
       return={movie.id}
       onPressLeft={this._onPressSelect}
       onPressCenter={this.state.isSelecting ? this._onPressSelect : this._onPressGoTo}
@@ -234,27 +233,25 @@ class WantedIndex extends React.Component {
     const { isGettingNextPage, isRefreshing, isSyncing } = this.state
 
     return (
-      <View style={[ theme.style.viewBody, this.props.hasNotificationStyle ]}>
-        <FlatList
-          scrollEnabled={isGettingNextPage === false}
-          style={style.wantedList}
-          data={wantedArray}
-          renderItem={this._renderItem}
-          keyExtractor={this._keyExtractor}
-          getItemLayout={this._getItemLayout}
-          initialNumToRender={config.wantedInitialNumToRender}
-          removeClippedSubviews={true}
-          indicatorStyle={theme.scrollBarStyle}
-          refreshControl={<RefreshControl
-            refreshing={isRefreshing}
-            onRefresh={this._onRefresh}
-          />}
-          onEndReached={isSyncing ? null : this._onEndReached}
-          onEndReachedThreshold={0.67}
-          ItemSeparatorComponent={ListItemSeparator}
-          ListFooterComponent={<Text style={style.footerComponent}>{isLastPage ? localization.t('theEnd') : localization.t('loadingMore')}</Text>}
-        />
-      </View>
+      <FlatList
+        scrollEnabled={isGettingNextPage === false}
+        style={[ theme.style.viewBody, this.props.hasNotificationStyle ]}
+        data={wantedArray}
+        renderItem={this._renderItem}
+        keyExtractor={this._keyExtractor}
+        getItemLayout={this._getItemLayout}
+        initialNumToRender={config.wantedInitialNumToRender}
+        removeClippedSubviews={true}
+        indicatorStyle={theme.scrollBarStyle}
+        refreshControl={<RefreshControl
+          refreshing={isRefreshing}
+          onRefresh={this._onRefresh}
+        />}
+        onEndReached={isSyncing ? null : this._onEndReached}
+        onEndReachedThreshold={0.67}
+        ItemSeparatorComponent={ListItemSeparator}
+        ListFooterComponent={<Text style={style.footerComponent}>{isLastPage ? localization.t('theEnd') : localization.t('loadingMore')}</Text>}
+      />
     )
   }
 }

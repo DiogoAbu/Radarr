@@ -41,6 +41,16 @@ export default {
   failed     : 'Failed',
   warning    : 'Warning',
 
+  grabbed               : 'Grabbed',
+  downloadFolderImported: 'Imported',
+  downloadFailed        : 'Download failed',
+  movieFileDeleted      : 'File deleted',
+
+  MissingFromDisk : 'Missing from disk',
+  Manual          : 'Manual',
+  Upgrade         : 'Upgrade',
+  NoLinkedEpisodes: 'No linked episodes',
+
   os     : 'OS',
   linux  : 'Linux',
   osx    : 'OSX',
@@ -65,6 +75,7 @@ export default {
   sqliteVersion    : 'Sqlite version',
   runtimeVersion   : 'Runtime version',
 
+  details       : 'details',
   movies        : 'Movies',
   movieDetails  : 'Movie Details',
   movieEdit     : 'Movie Preferences',
@@ -123,6 +134,15 @@ export default {
   year               : 'Year',
   minimumAvailability: 'Minimum Availability',
   path               : 'Path',
+  type               : 'Type',
+  indexer            : 'Indexer',
+  releaseGroup       : 'Release group',
+  downloadClient     : 'Download client',
+  ageWhenGrabbed     : 'Age when grabbed',
+  published          : 'Published',
+  qualityCutoffNotMet: 'Cutoff not met',
+  message            : 'Message',
+  reason             : 'Reason',
 
   searchMovie        : 'Search movie',
   goAddAServer       : 'Go add a server',
@@ -185,6 +205,8 @@ export default {
   specifiedServerNotFound : 'Specified Server not found',
   noServersFound          : 'No Servers found',
   'Network request failed': 'Failed to reach server, check WiFi and if server is online',
+
+  'Manually marked as failed': 'Manually marked as failed',
 
   Absurdist        : 'Absurdist',
   Action           : 'Action',

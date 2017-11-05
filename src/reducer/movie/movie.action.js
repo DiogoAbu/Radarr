@@ -51,7 +51,7 @@ export function sync({ server, onDoneRead, onDoneGet, onDoneStore }) {
         return fetched
       }
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -77,7 +77,7 @@ export function read({ server, onDone }) {
 
       return dispatch({ type: TYPE.SET_MOVIE, payload: movieArray })
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -142,7 +142,7 @@ export function get({ server, movieId, onDone }) {
 
       throw new Error(`Failed to handle fetched movie data (${url})`)
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -193,7 +193,7 @@ export function store({ server, movie, onDone }) {
 
       return dispatch({ type: TYPE.SET_MOVIE, payload: movieArray })
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -217,7 +217,7 @@ export function purge({ server, onDone }) {
 
       return dispatch({ type: TYPE.SET_MOVIE, payload: [] })
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }

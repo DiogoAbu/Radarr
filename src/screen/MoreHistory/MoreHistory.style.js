@@ -27,4 +27,9 @@ export default StyleSheet.create({
     textAlign     : 'center',
     marginVertical: theme.grid / 2,
   },
+
+  below: {
+    color   : theme.fontColorFade,
+    fontSize: theme.fontSizeSm,
+  },
 })

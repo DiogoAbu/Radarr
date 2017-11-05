@@ -48,7 +48,7 @@ export function sync({ server, onDoneRead, onDoneGet, onDoneStore }) {
         await store({ server, diskspaceArray: fetched, onDone: onDoneStore })(dispatch)
       }
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -74,7 +74,7 @@ export function read({ server, onDone }) {
 
       return dispatch({ type: TYPE.SET_DISKSPACE, payload: diskspaceArray })
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -115,7 +115,7 @@ export function get({ server, onDone }) {
 
       throw new Error(`Failed to handle fetched diskspace data (${url})`)
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -144,7 +144,7 @@ export function store({ server, diskspaceArray, onDone }) {
 
       return dispatch({ type: TYPE.SET_DISKSPACE, payload: diskspaceArray })
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -168,7 +168,7 @@ export function purge({ server, onDone }) {
 
       return dispatch({ type: TYPE.SET_DISKSPACE, payload: [] })
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }

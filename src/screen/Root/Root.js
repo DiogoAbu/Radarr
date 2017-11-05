@@ -45,11 +45,11 @@ class Root extends React.Component {
 
   shouldComponentUpdate(nextProps) {
     if (!isEqual(nextProps.nav, this.props.nav)) {
-      if(__DEV__) console.log('Render', 'Root', 'navigation')
+      console.log('Render', 'Root', 'navigation')
       return true
     }
     if (nextProps.fullscreen !== this.props.fullscreen) {
-      if(__DEV__) console.log('Render', 'Root', 'fullscreen')
+      console.log('Render', 'Root', 'fullscreen')
       return true
     }
     if (nextProps.notification.message) {
@@ -65,12 +65,12 @@ class Root extends React.Component {
         this.props.removeNotification()
       }, config.notificationTimeout)
 
-      if(__DEV__) console.log('Render', 'Root', 'notification added')
+      console.log('Render', 'Root', 'notification added')
       return true
     }
     if (nextProps.notification.message !== this.props.notification.message) {
       // Will render to remove notification
-      if(__DEV__) console.log('Render', 'Root', 'notification updated')
+      console.log('Render', 'Root', 'notification updated')
       return true
     }
     return false
