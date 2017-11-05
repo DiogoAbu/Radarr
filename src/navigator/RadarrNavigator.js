@@ -25,6 +25,8 @@ import { MoreHistory } from 'src/screen/MoreHistory'
 import { MoreHistoryDetail } from 'src/screen/MoreHistoryDetail'
 import { MoreIndex } from 'src/screen/MoreIndex'
 import { MoreNotification } from 'src/screen/MoreNotification'
+import { MoreProfile } from 'src/screen/MoreProfile'
+import { MoreProfileDetail } from 'src/screen/MoreProfileDetail'
 import { MoreSystemStatus } from 'src/screen/MoreSystemStatus'
 
 import { MovieDetail } from 'src/screen/MovieDetail'
@@ -70,7 +72,7 @@ const screen = {
   },
 
   More: {
-    screen           : StackNavigator({ MoreDiskspace, MoreHistory, MoreHistoryDetail, MoreIndex, MoreNotification, MoreSystemStatus }, { ...config.navigator.stack, initialRouteName: 'MoreIndex' }),
+    screen           : StackNavigator({ MoreDiskspace, MoreHistory, MoreHistoryDetail, MoreIndex, MoreNotification, MoreProfile, MoreProfileDetail, MoreSystemStatus }, { ...config.navigator.stack, initialRouteName: 'MoreIndex' }),
     navigationOptions: {
       tabBarIcon: <Icon
         style={{ color: theme.fontColor, fontSize: theme.fontSizeLg }}
