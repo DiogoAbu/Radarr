@@ -38,7 +38,7 @@ class MoreNotification extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     if ((!isEqual(nextProps, this.props) || !isEqual(nextState, this.state)) && nextProps.currentRoute === this.constructor.displayName) {
-      if(__DEV__) console.log('Render', 'MoreNotification', 'currentRoute')
+      console.log('Render', 'MoreNotification', 'currentRoute')
       return true
     }
     return false

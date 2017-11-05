@@ -48,7 +48,7 @@ export function sync({ server, onDoneRead, onDoneGet, onDoneStore }) {
         await store({ server, profileArray: fetched, onDone: onDoneStore })(dispatch)
       }
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -74,7 +74,7 @@ export function read({ server, onDone }) {
 
       return dispatch({ type: TYPE.SET_PROFILE, payload: profileArray })
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -139,7 +139,7 @@ export function get({ server, profileId, onDone }) {
 
       throw new Error(`Failed to handle fetched profile data (${url})`)
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -168,7 +168,7 @@ export function store({ server, profileArray, onDone }) {
 
       return dispatch({ type: TYPE.SET_PROFILE, payload: profileArray })
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -192,7 +192,7 @@ export function purge({ server, onDone }) {
 
       return dispatch({ type: TYPE.SET_PROFILE, payload: [] })
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }

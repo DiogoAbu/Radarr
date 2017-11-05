@@ -22,9 +22,17 @@ import { theme } from 'src/constant'
 // Init //
 //////////
 export default StyleSheet.create({
-  footerComponent: {
-    color         : theme.fontColorFader,
-    textAlign     : 'center',
-    marginVertical: theme.grid / 2,
+  titleContainer: {
+    flex        : 0,
+    flexGrow    : 1,
+    paddingRight: theme.grid / 2,
+  },
+
+  valueContainer: {
+    flex: -1,
+  },
+
+  value: {
+    textAlign: 'right',
   },
 })

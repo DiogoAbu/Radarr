@@ -38,7 +38,7 @@ export function get() {
 
       return dispatch({ type: TYPE.SET_SERVER, payload: serverArray })
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message } })
     }
   }
@@ -114,7 +114,7 @@ export function store(server) {
       await AsyncStorage.setItem(config.storageKey.server, JSON.stringify(serverArray))
       return dispatch({ type: TYPE.SET_SERVER, payload: serverArray })
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -162,7 +162,7 @@ export function remove(server) {
 
       return dispatch({ type: TYPE.SET_SERVER, payload: serverArray })
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
   }
@@ -179,7 +179,7 @@ export function purge() {
 
       return dispatch({ type: TYPE.SET_SERVER, payload: [] })
     } catch (err) {
-      if (__DEV__) console.warn(err)
+      console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message } })
     }
   }
@@ -198,7 +198,7 @@ export function setActive(server) {
 
     return { type: TYPE.SET_SERVER_ACTIVE, payload: server }
   } catch (err) {
-    if (__DEV__) console.warn(err)
+    console.warn(err)
     return { type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message } }
   }
 }

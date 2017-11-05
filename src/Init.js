@@ -53,7 +53,7 @@ class Init extends React.Component {
   _initAsyncDone = () => this.setState({ isAppReady: true })
 
   render = () =>{
-    if(__DEV__) console.log('Render', 'Init')
+    console.log('Render', 'Init')
 
     if(this.state.isAppReady !== true) {
       return (

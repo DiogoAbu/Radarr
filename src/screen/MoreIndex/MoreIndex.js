@@ -63,7 +63,7 @@ class MoreIndex extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     if ((!isEqual(nextProps, this.props) || !isEqual(nextState, this.state)) && nextProps.currentRoute === this.constructor.displayName) {
-      if (__DEV__) console.log('Render', 'MoreIndex', 'currentRoute')
+      console.log('Render', 'MoreIndex', 'currentRoute')
       return true
     }
     return false

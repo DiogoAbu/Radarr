@@ -102,7 +102,7 @@ class PortScreen extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     if ((!isEqual(nextProps, this.props) || !isEqual(nextState, this.state)) && nextProps.currentRoute === this.constructor.displayName) {
-      if(__DEV__) console.log('Render', 'ServerAdd', 'currentRoute')
+      console.log('Render', 'ServerAdd', 'currentRoute')
       return true
     }
     return false

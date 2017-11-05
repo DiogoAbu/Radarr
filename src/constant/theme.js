@@ -315,6 +315,11 @@ theme.props.twoLine = {
   ellipsizeMode: 'tail',
 }
 
+theme.props.threeLine = {
+  numberOfLines: 3,
+  ellipsizeMode: 'tail',
+}
+
 //////////
 // View //
 //////////
