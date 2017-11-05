@@ -84,7 +84,7 @@
 
 6. Merge `master` and `feature`
     ```bash
-    git merge --no-ff feature/FeatureName
+    git merge --ff-only feature/FeatureName
     ```
 
 7. Update remote with branch `master`
@@ -104,7 +104,7 @@
       git checkout feature/FeatureName
       git rebase master feature/FeatureName
       git checkout master
-      git merge --no-ff feature/FeatureName
+      git merge --ff-only feature/FeatureName
       git push origin master
       git branch -d feature/FeatureName
       ```
