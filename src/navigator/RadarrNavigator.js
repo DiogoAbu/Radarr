@@ -20,6 +20,7 @@ import { MaterialCommunityIcons as Icon } from '@expo/vector-icons'
 ////////////
 import { config, theme } from 'src/constant'
 
+import { MoreCalendar } from 'src/screen/MoreCalendar'
 import { MoreDiskspace } from 'src/screen/MoreDiskspace'
 import { MoreHistory } from 'src/screen/MoreHistory'
 import { MoreHistoryDetail } from 'src/screen/MoreHistoryDetail'
@@ -72,7 +73,7 @@ const screen = {
   },
 
   More: {
-    screen           : StackNavigator({ MoreDiskspace, MoreHistory, MoreHistoryDetail, MoreIndex, MoreNotification, MoreProfile, MoreProfileDetail, MoreSystemStatus }, { ...config.navigator.stack, initialRouteName: 'MoreIndex' }),
+    screen           : StackNavigator({ MoreCalendar, MoreDiskspace, MoreHistory, MoreHistoryDetail, MoreIndex, MoreNotification, MoreProfile, MoreProfileDetail, MoreSystemStatus }, { ...config.navigator.stack, initialRouteName: 'MoreIndex' }),
     navigationOptions: {
       tabBarIcon: <Icon
         style={{ color: theme.fontColor, fontSize: theme.fontSizeLg }}

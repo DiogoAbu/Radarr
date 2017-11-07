@@ -99,17 +99,7 @@ export function get({ server, params, onDone }) {
         throw new Error('Server invalid')
       }
 
-      const paramsFinal = {
-        start: moment
-          .utc()
-          .subtract((params && params.before) || config.calendar.daysBefore, 'days')
-          .format('YYYY-MM-DD'),
-
-        end: moment
-          .utc()
-          .add((params && params.after) || config.calendar.daysAfter, 'days')
-          .format('YYYY-MM-DD'),
-      }
+      const paramsFinal = handleGetParams(params)
 
       // Build URL
       const url = apiURL(server, 'calendar', paramsFinal)
@@ -137,6 +127,45 @@ export function get({ server, params, onDone }) {
       console.warn(err)
       return dispatch({ type: TYPEAPP.SET_NOTIFICATION, payload: { type: 'error', message: err.message, serverKey: server.key } })
     }
+  }
+}
+
+/**
+ * [handleGetParams description]
+ * @param  {[type]} params [description]
+ * @return {[type]}        [description]
+ */
+function handleGetParams(params) {
+  // Return default
+  if (!params) {
+    const start = moment()
+    return {
+      start: start.startOf('month').format('YYYY-MM-DD'),
+      end  : start.endOf('month').format('YYYY-MM-DD'),
+    }
+  }
+
+  // Return specified
+  if (params.start && params.end) {
+    return params
+  }
+
+  // Prepare start time
+  let start
+
+  if (params.month && params.year) {
+    start = moment(`${params.year}-${params.month}`, 'YYYY-MM')
+  } else if (params.month) {
+    start = moment(params.month, 'MM')
+  } else if (params.year) {
+    start = moment(params.year, 'YYYY')
+  } else {
+    start = moment()
+  }
+
+  return {
+    start: start.startOf('month').format('YYYY-MM-DD'),
+    end  : start.endOf('month').format('YYYY-MM-DD'),
   }
 }
 

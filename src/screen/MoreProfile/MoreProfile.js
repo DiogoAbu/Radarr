@@ -57,7 +57,7 @@ class MoreProfile extends React.Component {
   _onPressItem = id => this.props.navigation.navigate('MoreProfileDetail', { id })
 
   _keyExtractor = item => item.id
-  _getItemLayoutSort = (data, index) => ({ length: theme.listItemHeight, offset: (theme.listItemHeight + theme.listItemSeparatorHeight) * index, index })
+  _getItemLayout = (data, index) => ({ length: theme.listItemHeight, offset: (theme.listItemHeight + theme.listItemSeparatorHeight) * index, index })
 
   _renderItem = ({ item }) => (
     <ListItem

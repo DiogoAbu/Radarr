@@ -51,7 +51,7 @@ class MoreDiskspace extends React.Component {
   }
 
   _keyExtractor = item => item.path
-  _getItemLayoutSort = (data, index) => ({ length: ITEM_HEIGHT, offset: (ITEM_HEIGHT + theme.listItemSeparatorHeight) * index, index })
+  _getItemLayout = (data, index) => ({ length: ITEM_HEIGHT, offset: (ITEM_HEIGHT + theme.listItemSeparatorHeight) * index, index })
 
   _renderItem = ({ item }) => (
     <ListItem

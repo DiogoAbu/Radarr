@@ -102,6 +102,13 @@ theme.brandErrorFade     = tc(theme.brandError).setAlpha(0.7).toRgbString()
 theme.brandErrorFader    = tc(theme.brandError).setAlpha(0.5).toRgbString()
 theme.brandErrorFadest   = tc(theme.brandError).setAlpha(0.3).toRgbString()
 
+theme.calendarInCinemas = '#35c5f4'
+theme.calendarAnnounced = '#337ab7'
+theme.calendarDownloading = '#7932ea'
+theme.calendarMissing = '#d9534f'
+theme.calendarDownloaded = '#5cb85c'
+theme.calendarUnmonitored = '#272727'
+
 ////////////////
 // Typography //
 ////////////////

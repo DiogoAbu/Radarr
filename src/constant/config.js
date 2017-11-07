@@ -41,6 +41,8 @@ const config = {
   historyInitialNumToRender: 5,
   historyGetPageSize       : 100,
 
+  calendarYearPeriod: 3,
+
   notificationMaxToStore : 25,
   notificationTimeout    : 4000,
   notificationTypeDefault: 'default',
@@ -91,11 +93,6 @@ const config = {
   banner: {
     width : 960,
     height: 540,
-  },
-
-  calendar: {
-    daysBefore: 15,
-    daysAfter : 15,
   },
 
   storageKey: {

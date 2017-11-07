@@ -29,6 +29,7 @@ import { calendar } from './calendar'
 import { diskspace } from './diskspace'
 import { systemStatus } from './systemStatus'
 
+import { MoreCalendarReducer } from 'src/screen/MoreCalendar'
 import { MoreHistoryReducer } from 'src/screen/MoreHistory'
 import { MovieIndexReducer } from 'src/screen/MovieIndex'
 import { QueueIndexReducer } from 'src/screen/QueueIndex'
@@ -51,8 +52,9 @@ export default combineReducers({
   diskspace,
   systemStatus,
 
-  MoreHistory: MoreHistoryReducer,
-  MovieIndex : MovieIndexReducer,
-  QueueIndex : QueueIndexReducer,
-  WantedIndex: WantedIndexReducer,
+  MoreCalendar: MoreCalendarReducer,
+  MoreHistory : MoreHistoryReducer,
+  MovieIndex  : MovieIndexReducer,
+  QueueIndex  : QueueIndexReducer,
+  WantedIndex : WantedIndexReducer,
 })

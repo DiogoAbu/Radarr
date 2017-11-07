@@ -47,7 +47,7 @@ class MoreProfileDetail extends React.Component {
     return false
   }
 
-  _getItemLayoutSort = (data, index) => ({ length: theme.listItemHeight, offset: (theme.listItemHeight + theme.listItemSeparatorHeight) * index, index })
+  _getItemLayout = (data, index) => ({ length: theme.listItemHeight, offset: (theme.listItemHeight + theme.listItemSeparatorHeight) * index, index })
 
   _renderItem = ({ item }) =>
     item.value === true || item.value === false ? (

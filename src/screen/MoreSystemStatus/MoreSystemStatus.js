@@ -47,7 +47,7 @@ class MoreSystemStatus extends React.Component {
     return false
   }
 
-  _getItemLayoutSort = (data, index) => ({ length: theme.listItemHeight, offset: (theme.listItemHeight + theme.listItemSeparatorHeight) * index, index })
+  _getItemLayout = (data, index) => ({ length: theme.listItemHeight, offset: (theme.listItemHeight + theme.listItemSeparatorHeight) * index, index })
 
   _renderItem = ({ item: { key, text, value, raw } }) => (
     <ListItem

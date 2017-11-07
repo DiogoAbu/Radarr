@@ -45,15 +45,6 @@ const added = sortDirection => (a, b) => {
   return B.diff(A)
 }
 
-const title = sortDirection => (a, b) => {
-  const options = {
-    caseSensitive: false,
-    order        : sortDirection === 'ASC' ? 'ASC' : 'DESC',
-  }
-
-  return naturalSort(options)(a.sortTitle, b.sortTitle)
-}
-
 const fileAdded = sortDirection => (a, b) => {
   if (!a.movieFile || !a.movieFile.dateAdded) return sortDirection === 'ASC' ? -1 : 1
   if (!b.movieFile || !b.movieFile.dateAdded) return sortDirection === 'ASC' ? 1 : -1
@@ -67,4 +58,26 @@ const fileAdded = sortDirection => (a, b) => {
   return B.diff(A)
 }
 
-export default { list, added, title, fileAdded }
+const physicalRelease = sortDirection => (a, b) => {
+  if (!a.physicalRelease) return sortDirection === 'ASC' ? -1 : 1
+  if (!b.physicalRelease) return sortDirection === 'ASC' ? 1 : -1
+
+  const A = moment.utc(a.physicalRelease)
+  const B = moment.utc(b.physicalRelease)
+
+  if (sortDirection === 'ASC') {
+    return A.diff(B)
+  }
+  return B.diff(A)
+}
+
+const title = sortDirection => (a, b) => {
+  const options = {
+    caseSensitive: false,
+    order        : sortDirection === 'ASC' ? 'ASC' : 'DESC',
+  }
+
+  return naturalSort(options)(a.sortTitle, b.sortTitle)
+}
+
+export default { list, added, fileAdded, physicalRelease, title }

@@ -59,7 +59,7 @@ class MoreNotification extends React.Component {
     }
   }
 
-  _getItemLayoutSort = (data, index) => ({ length: theme.listItemHeight, offset: (theme.listItemHeight + theme.listItemSeparatorHeight) * index, index })
+  _getItemLayout = (data, index) => ({ length: theme.listItemHeight, offset: (theme.listItemHeight + theme.listItemSeparatorHeight) * index, index })
 
   _renderItem = ({ item }) => (<ListItem
     left={this._getIconAndColor(item.type)}
