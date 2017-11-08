@@ -21,6 +21,8 @@ import { connect } from 'react-redux'
 import isEqual from 'lodash.isequal'
 import { debounce } from 'throttle-debounce'
 
+import moment from 'moment'
+
 ////////////
 // Custom //
 ////////////
@@ -61,7 +63,7 @@ class MoreCalendar extends React.Component {
     this._onPressYearHide = debounce(config.debounceTime, true, this._onPressYearHide)
     this._onPressItemYear = debounce(config.debounceTime, true, this._onPressItemYear)
 
-    this._monthArray = 'jan_fev_mar_abr_mai_jun_jul_ago_set_out_nov_dez'.split('_')
+    this._monthArray = moment.monthsShort()
   }
 
   state = {
@@ -136,6 +138,12 @@ class MoreCalendar extends React.Component {
     }
   }
 
+  _onLayoutScrollToMonth = () => {
+    if (this.props.currentMonth >= this._monthArray.length / 2) {
+      setTimeout(() => this._monthList.scrollToEnd({ animated: false }), 0)
+    }
+  }
+
   _getStatusLevel = movie => {
     const hasFile = movie.hasFile
     const monitored = movie.monitored
@@ -178,7 +186,7 @@ class MoreCalendar extends React.Component {
       styleCenter={{ flex: 1, alignItems: 'center', alignSelf: 'stretch' }}
       styleTextCenter={{ textAlign: 'center' }}
       right={null}
-      style={[ { width: theme.grid * 3 }, index === this.props.currentMonth && { backgroundColor: theme.brandPrimaryDark } ]}
+      style={[ style.itemMonth, index === this.props.currentMonth && style.itemMonthActive ]}
     />
   )
 
@@ -194,29 +202,28 @@ class MoreCalendar extends React.Component {
   )
 
   render = () => (
-    <View style={[ theme.style.viewBody, this.props.hasNotificationStyle, { flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'stretch' } ]}>
+    <View
+      style={[ theme.style.viewBody, this.props.hasNotificationStyle, style.outerContainer ]}
+      onLayout={this._onLayoutScrollToMonth}
+    >
       <Modal
         visible={this.state.isShowingYear}
         onRequestClose={this._onPressYearHide}
-        style={{
-          flexDirection : 'column',
-          justifyContent: 'center',
-          alignItems    : 'stretch',
-          margin        : 0,
-        }}
+        style={style.modal}
       >
         <FlatList
           data={this._yearArray}
           renderItem={this._renderItemYear}
           keyExtractor={item => `year-${item}`}
-          getItemLayout={this._getItemLayoutSort}
+          getItemLayout={this._getItemLayout}
           ItemSeparatorComponent={ListItemSeparator}
           indicatorStyle={theme.scrollBarStyle}
         />
       </Modal>
 
       <FlatList
-        style={{ flex: 0, flexGrow: 0, width: theme.grid * 3 }}
+        ref={ref => (this._monthList = ref)}
+        style={style.listMonth}
         data={this._monthArray}
         extraData={this.props.currentMonth}
         renderItem={this._renderItemMonth}
@@ -225,7 +232,6 @@ class MoreCalendar extends React.Component {
         ItemSeparatorComponent={ListItemSeparator}
         indicatorStyle={theme.scrollBarStyle}
         initialNumToRender={12}
-        initialScrollIndex={this.props.currentMonth}
       />
 
       {this.state.fetching ? (
@@ -234,7 +240,7 @@ class MoreCalendar extends React.Component {
         </View>
       ) : (
         <SectionList
-          style={{ flex: 1, borderLeftColor: theme.listItemSeparatorBg, borderLeftWidth: theme.listItemSeparatorHeight }}
+          style={style.listCalendar}
           sections={this.props.calendarArray}
           renderItem={this._renderItemMovie}
           renderSectionHeader={({ section }) => <Text style={[ theme.style.text, style.titleList ]}>{section.title}</Text>}

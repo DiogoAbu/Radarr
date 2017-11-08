@@ -209,6 +209,7 @@ export default {
   requestTimeout          : 'Request timeout',
   specifiedServerNotFound : 'Specified Server not found',
   noServersFound          : 'No Servers found',
+  noMoviesForThisMonth    : 'No Movies found for this month',
   'Network request failed': 'Failed to reach server, check WiFi and if server is online',
 
   'Manually marked as failed': 'Manually marked as failed',

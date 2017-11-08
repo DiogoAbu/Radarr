@@ -1,8 +1,8 @@
-# Unofficial offline-first Radarr iOS/Android Client
+# Radarr iOS/Android Client &middot;  [![CircleCI](https://circleci.com/gh/LetsMakeApps/Radarr.svg?style=shield)](https://circleci.com/gh/LetsMakeApps/Radarr)
 <img src=".github/screenshot-app.png" width="800">
 
 ## About
-An offline-first app for [Radarr](https://github.com/Radarr/Radarr)
+An unofficial offline-first app for [Radarr](https://github.com/Radarr/Radarr)
 
 After you input the Radarr API details it will download *all* info from **Radarr** and keep in storage for **offline** use.
 
